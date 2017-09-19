@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
+
 app.use('/', routes);
+app.use(express.static('public'));
 
 const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 app.set('view engine', 'html'); // have res.render work with html files

@@ -1,9 +1,11 @@
 const _ = require('lodash');
-
-var data = [];
+var IDcounter = 0;
+var data = [{ name: 'Joe McQueue',
+    content: 'Fullstack Academy is funny! The instructors are just so wonderful. #fullstacklove #codedreams' }];
 
 function add (name, content) {
-  data.push({ name: name, content: content });
+  IDcounter ++
+  data.push({ name: name, content: content, id: IDcounter});
 }
 
 function list () {
@@ -11,6 +13,8 @@ function list () {
 }
 
 function find (properties) {
+  //console.log('data: ', data, '\n', 'properties: ', properties, '_.cloneDeep(_.filter(data, properties): ', _.cloneDeep(_.filter(data, properties)))
+  
   return _.cloneDeep(_.filter(data, properties));
 }
 
